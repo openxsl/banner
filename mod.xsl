@@ -4,7 +4,15 @@
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-banner" ox-mod="banner">
             <xsl:if test="$first/img">
-	            <a href="{$first/href}"><img src="{$first/img}" /></a>
+            	<xsl:choose>
+            		<xsl:when test="$first/href and $first/href != ''">
+            			<a href="{$first/href}"><img src="{$first/img}" /></a>
+            		</xsl:when>
+            		<xsl:otherwise>
+            			<img src="{$first/img}" />
+            		</xsl:otherwise>
+            	</xsl:choose>
+	            
 	        </xsl:if>
         </div>
     </xsl:template>
